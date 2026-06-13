@@ -126,7 +126,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="bg-dark-10">
+      <nav className="bg-dark-10 border-2 border-dark-15">
         <div className="wrapper flex justify-between items-center py-2">
           <Link to="/">
             <img

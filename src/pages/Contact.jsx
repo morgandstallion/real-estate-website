@@ -1,8 +1,10 @@
 import Navbar from "../components/navbar";
+import NotificationBanner from "../components/notificationBanner";
 
 const Contact = () => {
   return (
     <>
+      <NotificationBanner />
       <Navbar />
       <div className="wrapper py-10">
         <h1 className="text-heading-1 text-center">Contact Us</h1>
