@@ -2,12 +2,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-60: #ff7a00;
-  --color-brand-65: #ff7a00;
+  --color-brand-60: #703bf7;
+  --color-brand-65: #1a64ff;
   --color-brand-70: #ff9533;
   --color-brand-75: #ffca99;
-  --color-brand-75: #ffca99;
-  --color-brand-90: #ffe4cc;
   --color-brand-90: #ffe4cc;
   --color-brand-95: #fff1e5;
   --color-brand-97: #fff7f0;
@@ -85,5 +83,11 @@
 
   ::-webkit-scrollbar-track {
     background: transparent;
+  }
+}
+
+@layer components {
+  .wrapper {
+    @apply max-w-7xl mx-auto px-2;
   }
 }

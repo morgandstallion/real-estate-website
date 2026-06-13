@@ -1,11 +1,12 @@
 import Navbar from "../components/navbar.jsx";
 
-const Homepage = () => {
+const About = () => {
   return (
     <main>
       <Navbar />
+      <h1>About Us</h1>
     </main>
   );
 };
 
-export default Homepage;
+export default About;
