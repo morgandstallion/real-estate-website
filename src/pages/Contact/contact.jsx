@@ -1,5 +1,5 @@
-import Navbar from "../components/navbar";
-import NotificationBanner from "../components/notificationBanner";
+import Navbar from "../../components/navbar";
+import NotificationBanner from "../../components/notificationBanner";
 
 const Contact = () => {
   return (
