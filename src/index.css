@@ -39,7 +39,7 @@
   --text-heading-3--line-height: 1.5;
   --text-heading-3--letter-spacing: 0%;
 
-  --text-heading-4: clamp(1.25rem, 1.071rem + 0.476vw, 1.5rem);
+  --text-heading-4: clamp(1.25rem, 1.071rem + 0.476vw, 1.875rem);
   --text-heading-4--font-weight: 700;
   --text-heading-4--line-height: 1.5;
   --text-heading-4--letter-spacing: 0%;
@@ -71,11 +71,11 @@
   }
 
   ::-webkit-scrollbar {
-    width: 15px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #8888881c;
+    background: #7d757590;
     border-radius: 10px;
     border: 4px solid transparent;
     background-clip: content-box;
@@ -90,4 +90,18 @@
   .wrapper {
     @apply max-w-7xl mx-auto px-2;
   }
+}
+
+/* ========== ANIMATIONS ========== */
+
+/* Slow clockwise roll — runs indefinitely */
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility classes */
+.animate-slow-spin {
+  animation: slow-spin 8s linear infinite;
 }
