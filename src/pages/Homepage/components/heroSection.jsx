@@ -46,7 +46,7 @@ const HeroSection = () => {
       {/* Hero Image */}
       <img
         onClick={handleAnimationClick}
-        className="w-[clamp(7.313rem,6.777rem+1.429vw,8.063rem)] absolute inset-0 top-[66%] left-2.5 lg:left-[44.5%] lg:top-[25%] cursor-pointer"
+        className="w-[clamp(7.313rem,6.777rem+1.429vw,8.063rem)] absolute inset-0 top-[65%] left-2.5 lg:left-[44.5%] lg:top-[25%] cursor-pointer"
         src={heroAnimation}
         alt=""
       />
