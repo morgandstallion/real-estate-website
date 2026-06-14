@@ -94,18 +94,6 @@
 
 /* ========== ANIMATIONS ========== */
 
-/* Entrance animation: slide up from below + fade in */
-@keyframes hero-entry {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Slow clockwise roll — runs indefinitely */
 @keyframes slow-spin {
   to {
@@ -114,12 +102,6 @@
 }
 
 /* Utility classes */
-.animate-hero-entry {
-  animation: hero-entry 1s ease-out forwards;
-}
-
 .animate-slow-spin {
   animation: slow-spin 8s linear infinite;
-  /* Starts after the 1s entrance animation finishes */
-  animation-delay: 1s;
 }
