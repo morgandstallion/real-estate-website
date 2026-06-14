@@ -5,4 +5,10 @@ const navInfo = [
   { label: "Services", path: "/services" },
 ];
 
-export { navInfo };
+const heroMiniCard = [
+  { title: "200+", info: "Happy Customers" },
+  { title: "10k+", info: "Properties For Clients" },
+  { title: "16+", info: "Years of Experience" },
+];
+
+export { navInfo, heroMiniCard };
