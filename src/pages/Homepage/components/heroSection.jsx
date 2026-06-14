@@ -22,7 +22,7 @@ const HeroSection = () => {
     <>
       <div className="wrapper flex flex-col-reverse lg:flex-row items-center gap-14">
         {/* Hero Info */}
-        <div>
+        <div className="flex-1">
           <h1 className="text-heading-1 max-w-[clamp(22.375rem,11.125rem+30vw,38.125rem)] mb-[clamp(1rem,0.821rem+0.476vw,1.25rem)]">
             Discover Your Dream Property with Estatein
           </h1>
@@ -51,22 +51,23 @@ const HeroSection = () => {
           </div>
         </div>
         {/* Hero Image */}
-        <img
-          onClick={handleAnimationClick}
-          className="w-[clamp(7.313rem,6.777rem+1.429vw,8.063rem)] absolute inset-0 top-[65%] left-2.5 lg:left-[44.5%] lg:top-[25%] cursor-pointer"
-          src={heroAnimation}
-          alt=""
-        />
-
-        <img
-          className="w-full lg:w-172.5 rounded-2xl lg:rounded-none mbs-10 lg:mbs-0 lg:-me-11"
-          src={heroImage}
-          alt=""
-        />
+        <div className="relative flex-1 lg:-me-11">
+          <img
+            onClick={handleAnimationClick}
+            className="w-[clamp(5rem,10rem+6vw,5.5rem)] absolute top-[90%] left-[5%] md:top-[93%] md:left-[80%] lg:top-[30%] lg:-left-10 cursor-pointer z-10"
+            src={heroAnimation}
+            alt=""
+          />
+          <img
+            className="w-full lg:w-172.5 rounded-2xl lg:rounded-none mbs-10 lg:mbs-0"
+            src={heroImage}
+            alt=""
+          />
+        </div>
       </div>
 
       {/* Secondary Hero cards */}
-      <div className="px-2 lg:px-0 pbs-10 md:pbs-1 lg:pbs-0">
+      <div className="px-2 lg:px-0 pbs-10 md:pbs-2 lg:pbs-0">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 border-3 border-dark-15 rounded-lg lg:rounded-none p-2">
           <HeroCard image={image1} title="Find Your Dream Home" />
           <HeroCard image={image2} title="Unlock Property Value" />

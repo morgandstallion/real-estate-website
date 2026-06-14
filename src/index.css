@@ -71,11 +71,11 @@
   }
 
   ::-webkit-scrollbar {
-    width: 15px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #8888881c;
+    background: #7d757590;
     border-radius: 10px;
     border: 4px solid transparent;
     background-clip: content-box;
