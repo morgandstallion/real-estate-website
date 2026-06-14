@@ -52,12 +52,14 @@ const HeroSection = () => {
         </div>
         {/* Hero Image */}
         <div className="relative flex-1 lg:-me-11">
-          <img
-            onClick={handleAnimationClick}
-            className="w-[clamp(5rem,10rem+6vw,5.5rem)] absolute top-[90%] left-[5%] md:top-[93%] md:left-[80%] lg:top-[30%] lg:-left-10 cursor-pointer z-10"
-            src={heroAnimation}
-            alt=""
-          />
+          <div className="animate-hero-entry absolute top-[90%] left-[5%] md:top-[93%] md:left-[80%] lg:top-[30%] lg:-left-10 z-10">
+            <img
+              onClick={handleAnimationClick}
+              className="w-[clamp(5rem,10rem+6vw,5.5rem)] cursor-pointer animate-slow-spin"
+              src={heroAnimation}
+              alt=""
+            />
+          </div>
           <img
             className="w-full lg:w-172.5 rounded-2xl lg:rounded-none mbs-10 lg:mbs-0"
             src={heroImage}
