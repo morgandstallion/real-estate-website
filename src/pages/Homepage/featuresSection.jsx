@@ -1,5 +1,10 @@
-import { Link } from "react-router";
+import { SecondaryButton } from "../../components/buttons";
 import stars from "../../assets/icons/stars.svg";
+import PropertiesCard from "../../components/propertiesCard";
+
+import image1 from "../../assets/images/features-image1.png";
+import image2 from "../../assets/images/features-image2.png";
+import image3 from "../../assets/images/features-image3.png";
 
 const FeaturesSection = () => {
   return (
@@ -19,9 +24,41 @@ const FeaturesSection = () => {
             </span>
           </p>
 
-          <button className=" hidden lg:block bg-dark-10 border border-dark-15 hover:bg-dark-08 w-full lg:w-fit text-white font-normal py-[0.2em] px-[0.7em] rounded-md">
-            <Link to="/properties">Learn More</Link>
-          </button>
+          <div className="hidden lg:block">
+            <SecondaryButton title="Learn More" path="/properties" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-7.5 border-b border-dark-15 gap-5">
+          <PropertiesCard
+            image={image1}
+            title="Seaside Serenity Villa"
+            desc="A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood... Read More"
+            bedroom="4-Bedroom"
+            bathroom="3-bathroom"
+            vila="vila"
+            price="$550,000"
+          />
+
+          <PropertiesCard
+            image={image2}
+            title="Metropolitan Haven"
+            desc="A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More"
+            bedroom="4-Bedroom"
+            bathroom="3-bathroom"
+            vila="vila"
+            price="$550,000"
+          />
+
+          <PropertiesCard
+            image={image3}
+            title="Rustic Retreat Cottage"
+            desc="An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community... Read More"
+            bedroom="4-Bedroom"
+            bathroom="3-bathroom"
+            vila="vila"
+            price="$550,000"
+          />
         </div>
       </div>
     </section>
