@@ -1,10 +1,21 @@
 import SectionHeader from "./sectionHeader";
 import stars from "../../../assets/icons/stars.svg";
 import TestimonialCard from "../../../components/testimonialCard";
+import PaginationControls from "../../../components/paginationControls";
+import usePagination from "../../../hooks/usePagination";
 import image from "../../../assets/icons/golden-star.svg";
 import avatar from "../../../assets/images/Profile.png";
 
 const TestimonialSection = () => {
+  const {
+    goToPrevPage,
+    goToNextPage,
+    isFirstPage,
+    isLastPage,
+    cardsShown,
+    totalItems,
+  } = usePagination([]);
+
   return (
     <section className="wrapper pbs-[clamp(3.813rem,2.518rem+3.452vw,5.625rem)]">
       <SectionHeader
@@ -26,6 +37,16 @@ const TestimonialSection = () => {
           location="New York, USA"
         />
       </div>
+
+      <PaginationControls
+        goToPrevPage={goToPrevPage}
+        goToNextPage={goToNextPage}
+        isFirstPage={isFirstPage}
+        isLastPage={isLastPage}
+        cardsShown={cardsShown}
+        totalItems={totalItems}
+        secondaryButton={{ label: "View all Testimonials", path: "/properties" }}
+      />
     </section>
   );
 };
