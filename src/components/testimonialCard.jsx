@@ -14,7 +14,7 @@ const TestimonialCard = ({ title, testimonial, avatar, name, location }) => {
       <p className="mb-3">{testimonial}</p>
 
       <div className="flex gap-3 items-center">
-        <img src={avatar} alt="" />
+        <img className="w-12.5 rounded-full" src={avatar} alt="" />
 
         <div>
           <p>{name}</p>
