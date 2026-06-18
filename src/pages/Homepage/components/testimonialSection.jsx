@@ -1,5 +1,8 @@
 import SectionHeader from "./sectionHeader";
 import stars from "../../../assets/icons/stars.svg";
+import TestimonialCard from "../../../components/testimonialCard";
+import image from "../../../assets/icons/golden-star.svg";
+import avatar from "../../../assets/images/Profile.png";
 
 const TestimonialSection = () => {
   return (
@@ -12,6 +15,17 @@ const TestimonialSection = () => {
         buttonTitle="View All Testimonials"
         buttonPath="/properties"
       />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-7.5 border-b border-dark-15 gap-5">
+        <TestimonialCard
+          image={image}
+          title="Sold our apartment in record time"
+          testimonial="I was amazed at how quickly Estatein managed to sell our Manhattan apartment. Their marketing strategy was top-notch, and they brought in multiple qualified buyers within the first week. The entire process was transparent, and they kept us informed every step of the way. Highly recommended for anyone looking to sell."
+          avatar={avatar}
+          name="Morgan Samuel"
+          location="New York, USA"
+        />
+      </div>
     </section>
   );
 };
