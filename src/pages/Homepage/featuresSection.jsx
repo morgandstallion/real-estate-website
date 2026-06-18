@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { SecondaryButton } from "../../components/buttons";
 import stars from "../../assets/icons/stars.svg";
 import PropertiesCard from "../../components/propertiesCard";
+import SectionHeader from "./components/sectionHeader";
 import propertiesData from "../../../UI-data/properties";
+import { SecondaryButton } from "../../components/buttons";
 
 const FeaturesSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -71,101 +72,44 @@ const FeaturesSection = () => {
 
   return (
     <section className="wrapper pbs-[clamp(3.813rem,2.518rem+3.452vw,5.625rem)]">
-      <div>
-        <img src={stars} alt="" />
-        <h2 className="text-heading-2 py-3">Featured Properties</h2>
-        <div className="flex justify-between items-center">
-          <p className="text-dark-60 text-16 whitespace-pre-line lg:max-w-243.75">
-            Explore our handpicked selection of featured properties. Each
-            listing offers a glimpse into exceptional homes and investments
-            available through Estatein.{" "}
-            <span className="hidden md:inline">
-              Click "View Details" for more information.
-            </span>
-          </p>
+      <SectionHeader
+        icon={stars}
+        title="Featured Properties"
+        description="Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. "
+        descriptionSpan='Click "View Details" for more information.'
+        buttonTitle="Learn More"
+        buttonPath="/properties"
+      />
 
-          <div className="hidden lg:block">
-            <SecondaryButton title="Learn More" path="/properties" />
-          </div>
+      <div className="overflow-x-hidden">
+        <div
+          key={currentPage}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-7.5 border-b border-dark-15 gap-5 ${slideAnimationClass}`}
+        >
+          {currentItems.map((property, index) => (
+            <div
+              key={property.id}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <PropertiesCard {...property} />
+            </div>
+          ))}
         </div>
-        <div className="overflow-x-hidden">
-          <div
-            key={currentPage}
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-7.5 border-b border-dark-15 gap-5 ${slideAnimationClass}`}
+      </div>
+
+      {/* Carousel buttons for mobile */}
+      <div className="flex justify-between items-center py-5 md:hidden">
+        <SecondaryButton title="Learn More" path="/properties" />
+
+        <div className="flex justify-center items-center gap-3">
+          <button
+            onClick={goToPrevPage}
+            disabled={isFirstPage}
+            className={arrowButtonClass(isFirstPage)}
           >
-            {currentItems.map((property, index) => (
-              <div
-                key={property.id}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <PropertiesCard {...property} />
-              </div>
-            ))}
-          </div>
-        </div>
+            <span className="font-bold text-xl leading-none">&#x25C0;</span>
+          </button>
 
-        {/* Carousel buttons for mobile */}
-        <div className="flex justify-between items-center py-5 md:hidden">
-          <SecondaryButton title="Learn More" path="/properties" />
-
-          <div className="flex justify-center items-center gap-3">
-            <button
-              onClick={goToPrevPage}
-              disabled={isFirstPage}
-              className={arrowButtonClass(isFirstPage)}
-            >
-              <span className="font-bold text-xl leading-none">&#x25C0;</span>
-            </button>
-
-            <div>
-              <p>
-                <span>{cardsShown}</span>
-                <span className="text-dark-60"> of {totalProperties}</span>
-              </p>
-            </div>
-
-            <button
-              onClick={goToNextPage}
-              disabled={isLastPage}
-              className={arrowButtonClass(isLastPage)}
-            >
-              <span className="font-bold text-xl leading-none">&#x25B6;</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Carousel buttons for tablet */}
-        <div className="hidden md:flex lg:hidden justify-between items-center py-5">
-          <SecondaryButton title="Learn More" path="/properties" />
-
-          <div className="flex justify-center items-center gap-3">
-            <button
-              onClick={goToPrevPage}
-              disabled={isFirstPage}
-              className={arrowButtonClass(isFirstPage)}
-            >
-              <span className="font-bold text-xl leading-none">&#x25C0;</span>
-            </button>
-
-            <div>
-              <p>
-                <span>{cardsShown}</span>
-                <span className="text-dark-60"> of {totalProperties}</span>
-              </p>
-            </div>
-
-            <button
-              onClick={goToNextPage}
-              disabled={isLastPage}
-              className={arrowButtonClass(isLastPage)}
-            >
-              <span className="font-bold text-xl leading-none">&#x25B6;</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Carousel buttons for desktop */}
-        <div className="hidden lg:flex justify-between items-center py-5">
           <div>
             <p>
               <span>{cardsShown}</span>
@@ -173,23 +117,71 @@ const FeaturesSection = () => {
             </p>
           </div>
 
-          <div className="flex justify-center items-center gap-3">
-            <button
-              onClick={goToPrevPage}
-              disabled={isFirstPage}
-              className={arrowButtonClass(isFirstPage)}
-            >
-              <span className="font-bold text-xl leading-none">&#x25C0;</span>
-            </button>
+          <button
+            onClick={goToNextPage}
+            disabled={isLastPage}
+            className={arrowButtonClass(isLastPage)}
+          >
+            <span className="font-bold text-xl leading-none">&#x25B6;</span>
+          </button>
+        </div>
+      </div>
 
-            <button
-              onClick={goToNextPage}
-              disabled={isLastPage}
-              className={arrowButtonClass(isLastPage)}
-            >
-              <span className="font-bold text-xl leading-none">&#x25B6;</span>
-            </button>
+      {/* Carousel buttons for tablet */}
+      <div className="hidden md:flex lg:hidden justify-between items-center py-5">
+        <SecondaryButton title="Learn More" path="/properties" />
+
+        <div className="flex justify-center items-center gap-3">
+          <button
+            onClick={goToPrevPage}
+            disabled={isFirstPage}
+            className={arrowButtonClass(isFirstPage)}
+          >
+            <span className="font-bold text-xl leading-none">&#x25C0;</span>
+          </button>
+
+          <div>
+            <p>
+              <span>{cardsShown}</span>
+              <span className="text-dark-60"> of {totalProperties}</span>
+            </p>
           </div>
+
+          <button
+            onClick={goToNextPage}
+            disabled={isLastPage}
+            className={arrowButtonClass(isLastPage)}
+          >
+            <span className="font-bold text-xl leading-none">&#x25B6;</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Carousel buttons for desktop */}
+      <div className="hidden lg:flex justify-between items-center py-5">
+        <div>
+          <p>
+            <span>{cardsShown}</span>
+            <span className="text-dark-60"> of {totalProperties}</span>
+          </p>
+        </div>
+
+        <div className="flex justify-center items-center gap-3">
+          <button
+            onClick={goToPrevPage}
+            disabled={isFirstPage}
+            className={arrowButtonClass(isFirstPage)}
+          >
+            <span className="font-bold text-xl leading-none">&#x25C0;</span>
+          </button>
+
+          <button
+            onClick={goToNextPage}
+            disabled={isLastPage}
+            className={arrowButtonClass(isLastPage)}
+          >
+            <span className="font-bold text-xl leading-none">&#x25B6;</span>
+          </button>
         </div>
       </div>
     </section>
