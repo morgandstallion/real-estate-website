@@ -105,3 +105,35 @@
 .animate-slow-spin {
   animation: slow-spin 8s linear infinite;
 }
+
+/* Slide in from the right (for "next" pagination) */
+@keyframes slide-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-from-right > * {
+  animation: slide-from-right 0.4s ease-out both;
+}
+
+/* Slide in from the left (for "prev" pagination) */
+@keyframes slide-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-from-left > * {
+  animation: slide-from-left 0.4s ease-out both;
+}

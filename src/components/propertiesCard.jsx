@@ -38,11 +38,11 @@ const PropertiesCard = ({
       </div>
       <h4 className="text-heading-4 py-3">{title}</h4>
       <p className="text-16 text-dark-60 grow">
-        {displayText}
+        {displayText}{" "}
         {shouldTruncate && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-brand-60 hover:text-brand-65 inline cursor-pointer"
+            className="text-white font-bold hover:text-brand-65 inline cursor-pointer"
           >
             {isExpanded ? "Show Less" : "Read More"}
           </button>
@@ -75,7 +75,5 @@ const PropertiesCard = ({
     </div>
   );
 };
-
-// clamp(19.375rem,17.455rem+5.119vw,22.063rem)
 
 export default PropertiesCard;
