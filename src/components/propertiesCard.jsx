@@ -76,6 +76,4 @@ const PropertiesCard = ({
   );
 };
 
-// clamp(19.375rem,17.455rem+5.119vw,22.063rem)
-
 export default PropertiesCard;
