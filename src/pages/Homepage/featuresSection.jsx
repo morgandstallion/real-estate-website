@@ -7,6 +7,7 @@ import propertiesData from "../../../UI-data/properties";
 const FeaturesSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [direction, setDirection] = useState("right");
 
   useEffect(() => {
     const lg = window.matchMedia("(min-width: 1024px)");
@@ -44,10 +45,12 @@ const FeaturesSection = () => {
   );
 
   const goToPrevPage = () => {
+    setDirection("left");
     setCurrentPage((p) => Math.max(0, p - 1));
   };
 
   const goToNextPage = () => {
+    setDirection("right");
     setCurrentPage((p) => Math.min(totalPages - 1, p + 1));
   };
 
@@ -60,6 +63,11 @@ const FeaturesSection = () => {
         ? "border-dark-20 text-dark-60 cursor-not-allowed"
         : "border-dark-15 bg-dark-10 text-white cursor-pointer"
     }`;
+
+  const slideAnimationClass =
+    direction === "right"
+      ? "animate-slide-from-right"
+      : "animate-slide-from-left";
 
   return (
     <section className="wrapper pbs-[clamp(3.813rem,2.518rem+3.452vw,5.625rem)]">
@@ -80,10 +88,20 @@ const FeaturesSection = () => {
             <SecondaryButton title="Learn More" path="/properties" />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-7.5 border-b border-dark-15 gap-5">
-          {currentItems.map((property) => (
-            <PropertiesCard key={property.id} {...property} />
-          ))}
+        <div className="overflow-x-hidden">
+          <div
+            key={currentPage}
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-7.5 border-b border-dark-15 gap-5 ${slideAnimationClass}`}
+          >
+            {currentItems.map((property, index) => (
+              <div
+                key={property.id}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <PropertiesCard {...property} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Carousel buttons for mobile */}
