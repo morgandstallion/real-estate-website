@@ -18,7 +18,7 @@ const PropertiesCard = ({
         <img className="w-full h-full object-cover" src={image} alt={title} />
       </div>
       <h4 className="text-heading-4 py-3">{title}</h4>
-      <p className="text-16 text-dark-60 flex-grow">{desc}</p>
+      <p className="text-16 text-dark-60 grow">{desc}</p>
 
       <div className="flex gap-2 flex-wrap my-[clamp(1.25rem,1.071rem+0.476vw,1.5rem)]">
         <p className="flex justify-between gap-2 items-center bg-dark-10 border border-dark-15 rounded-full px-2 py-1">
