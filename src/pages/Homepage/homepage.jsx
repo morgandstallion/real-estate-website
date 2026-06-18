@@ -1,6 +1,7 @@
 import Navbar from "../../components/navbar.jsx";
 import NotificationBanner from "../../components/notificationBanner.jsx";
 import HeroSection from "./components/heroSection.jsx";
+import TestimonialSection from "./components/testimonialSection.jsx";
 import FeaturesSection from "./featuresSection.jsx";
 
 const Homepage = () => {
@@ -10,6 +11,7 @@ const Homepage = () => {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
+      <TestimonialSection />
     </main>
   );
 };
