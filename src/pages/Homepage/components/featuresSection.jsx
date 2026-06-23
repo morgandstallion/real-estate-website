@@ -1,9 +1,9 @@
-import stars from "../../assets/icons/stars.svg";
-import PropertiesCard from "../../components/propertiesCard";
-import SectionHeader from "./components/sectionHeader";
-import PaginationControls from "../../components/paginationControls";
-import usePagination from "../../hooks/usePagination";
-import propertiesData from "../../../UI-data/properties";
+import stars from "../../../assets/icons/stars.svg";
+import PropertiesCard from "../../../components/propertiesCard";
+import SectionHeader from "./sectionHeader";
+import PaginationControls from "../../../components/paginationControls";
+import usePagination from "../../../hooks/usePagination";
+import propertiesData from "../../../../UI-data/properties";
 
 const FeaturesSection = () => {
   const {
