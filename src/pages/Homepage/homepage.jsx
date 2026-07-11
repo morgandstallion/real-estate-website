@@ -3,6 +3,7 @@ import NotificationBanner from "../../components/notificationBanner.jsx";
 import HeroSection from "./components/heroSection.jsx";
 import TestimonialSection from "./components/testimonialSection.jsx";
 import FeaturesSection from "./components/featuresSection.jsx";
+import FaqSection from "./components/faqSection.jsx";
 
 const Homepage = () => {
   return (
@@ -12,6 +13,7 @@ const Homepage = () => {
       <HeroSection />
       <FeaturesSection />
       <TestimonialSection />
+      <FaqSection />
     </main>
   );
 };
