@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 
 const FaqCard = ({ question, summary, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const uid = useId();
+  const headerId = `faq-header-${uid}`;
+  const answerId = `faq-answer-${uid}`;
+
   return (
     <div
-      className={`border border-dark-15 rounded-2xl p-5 flex flex-col transition-all duration-300 cursor-pointer ${
+      className={`border border-dark-15 rounded-2xl p-5 flex flex-col transition-all duration-300 ${
         isOpen ? "bg-dark-10" : "bg-transparent"
       }`}
-      onClick={() => setIsOpen(!isOpen)}
     >
-      <div className="flex justify-between items-start gap-4">
+      <button
+        id={headerId}
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={answerId}
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex justify-between items-start gap-4 w-full text-left cursor-pointer bg-transparent border-0 p-0"
+      >
         <div className="flex-1">
           <h4 className="text-heading-20 text-white">{question}</h4>
           {summary && !isOpen && (
@@ -22,6 +32,7 @@ const FaqCard = ({ question, summary, answer }) => {
           className={`min-w-9 min-h-9 flex items-center justify-center border border-dark-15 rounded-full transition-transform duration-300 ${
             isOpen ? "rotate-45 bg-brand-70 border-brand-70" : "bg-dark-10"
           }`}
+          aria-hidden="true"
         >
           <svg
             width="16"
@@ -47,7 +58,7 @@ const FaqCard = ({ question, summary, answer }) => {
             />
           </svg>
         </div>
-      </div>
+      </button>
 
       <div
         className={`grid transition-all duration-300 ${
@@ -57,7 +68,11 @@ const FaqCard = ({ question, summary, answer }) => {
         }`}
       >
         <div className="overflow-hidden">
-          <p className="text-16 text-dark-60 leading-relaxed">{answer}</p>
+          {isOpen && (
+            <div id={answerId} aria-labelledby={headerId} role="region">
+              <p className="text-16 text-dark-60 leading-relaxed">{answer}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@ const FaqSection = () => {
         description="Find answers to common questions about Estatein's services, property listings, and the real estate process. We're here to provide clarity and assist you every step of the way."
         descriptionSpan=""
         buttonTitle="View All FAQs"
-        buttonPath="/properties"
+        buttonPath="/faq"
       />
 
       <div className="overflow-x-hidden">
@@ -53,8 +53,8 @@ const FaqSection = () => {
         cardsShown={cardsShown}
         totalItems={totalItems}
         secondaryButton={{
-          label: "View all Testimonials",
-          path: "/properties",
+          label: "View All FAQs",
+          path: "/faq",
         }}
       />
     </section>
