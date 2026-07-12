@@ -4,6 +4,7 @@ import HeroSection from "./components/heroSection.jsx";
 import TestimonialSection from "./components/testimonialSection.jsx";
 import FeaturesSection from "./components/featuresSection.jsx";
 import FaqSection from "./components/faqSection.jsx";
+import CtaBanner from "../../components/ctaBanner.jsx";
 
 const Homepage = () => {
   return (
@@ -14,6 +15,7 @@ const Homepage = () => {
       <FeaturesSection />
       <TestimonialSection />
       <FaqSection />
+      <CtaBanner />
     </main>
   );
 };
