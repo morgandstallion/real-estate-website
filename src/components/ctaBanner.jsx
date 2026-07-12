@@ -1,14 +1,15 @@
 import { PrimaryButton } from "./buttons";
+import ctaBg from "../assets/images/cta-lg.png";
 
 const CtaBanner = () => {
   return (
     <div
       style={{
-        backgroundImage: "url('src/assets/images/cta-lg.png')",
+        backgroundImage: `url(${ctaBg})`,
         backgroundPosition: "left",
         backgroundRepeat: "no-repeat",
       }}
-      className="bg-cover lg:bg-contain mt-[clamp(4.5625rem,5.125rem-0.625vw,5rem)]"
+      className="bg-cover lg:bg-contain mt-[clamp(4.5625rem,calc(5.125rem-0.625vw),5rem)]"
     >
       <div className="wrapper lg:py-20 flex flex-col lg:flex-row items-center justify-between">
         <div>
